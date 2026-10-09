@@ -141,3 +141,7 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 .project-page[data-project=c6] .chapter-image img{width:100%;height:auto;object-fit:contain}
 @media(max-width:750px){.project-page[data-project=c6] .project-chapter{grid-template-columns:1fr}.project-page[data-project=c6] .chapter-image{width:min(100%,390px)}.project-page .chapter-image figcaption{padding:12px}}
 
+/* Keep the invitation sentence on a single line at every width. */
+.invitation-copy{flex:1;min-width:0;width:100%;container-type:inline-size}
+.invitation-copy h2{white-space:nowrap;font-size:min(37px,5.5cqi);letter-spacing:-.025em;line-height:1.35}
+
