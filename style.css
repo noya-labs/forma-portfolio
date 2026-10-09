@@ -145,3 +145,12 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 .invitation-copy{flex:1;min-width:0;width:100%;container-type:inline-size}
 .invitation-copy h2{white-space:nowrap;font-size:min(37px,5.5cqi);letter-spacing:-.025em;line-height:1.35}
 
+/* The complete invitation copy is one continuous line. */
+.project-invitation{flex-wrap:wrap}
+.invitation-copy{flex:0 0 100%;display:flex;align-items:baseline;gap:8px;white-space:nowrap;overflow-x:auto;container-type:normal;padding-bottom:5px}
+.invitation-copy>.eyebrow{display:none}
+.invitation-copy h2,.invitation-copy p{display:inline;flex:none;font-size:clamp(12px,.95vw,18px);font-weight:400;line-height:1.8;letter-spacing:0;margin:0;white-space:nowrap}
+.invitation-copy br{display:none!important}
+.invitation-action{margin-top:8px}
+@media(max-width:800px){.invitation-copy{flex:auto;width:100%;gap:6px}.invitation-copy h2,.invitation-copy p{font-size:14px}}
+
