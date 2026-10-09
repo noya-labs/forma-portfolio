@@ -154,3 +154,6 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 .invitation-action{margin-top:8px}
 @media(max-width:800px){.invitation-copy{flex:auto;width:100%;gap:6px}.invitation-copy h2,.invitation-copy p{font-size:14px}}
 
+.invitation-copy h2,.invitation-copy p{font-size:clamp(36px,2.85vw,54px)}
+@media(max-width:800px){.invitation-copy h2,.invitation-copy p{font-size:42px}}
+
