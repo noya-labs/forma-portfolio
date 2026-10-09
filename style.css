@@ -167,3 +167,8 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 @media(max-width:800px){.invitation-action .start-project{font-size:28px}}
 @media(max-width:650px){.invitation-action .start-project{font-size:26px;padding:20px 18px;gap:14px}}
 
+/* Portfolio covers enlarged by fifty percent. */
+@media(min-width:1051px){body:not(.index-mode) .track{max-width:1575px;height:450px;--card-w:clamp(270px,25.5vw,352.5px)}body:not(.index-mode) .card{width:var(--card-w);height:450px}body:not(.index-mode) .stage{height:650px;min-height:650px}}
+@media(min-width:651px) and (max-width:1050px){body:not(.index-mode) .track{height:532.5px;--card-w:clamp(337.5px,43.5vw,420px)}body:not(.index-mode) .card{height:532.5px;left:0}body:not(.index-mode) .stage{height:680px;min-height:680px}}
+@media(max-width:650px){body:not(.index-mode) .track{height:510px;--card-w:min(85vw,427.5px)}body:not(.index-mode) .card{height:510px}body:not(.index-mode) .stage{height:590px;min-height:590px}}
+
