@@ -21,7 +21,7 @@ try{
  renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.2;
  const resize=()=>{renderer.setSize(host.clientWidth,host.querySelector('.tank-view').clientHeight,false);camera.aspect=canvas.clientWidth/canvas.clientHeight;camera.position.z=camera.aspect<1?24:16;camera.updateProjectionMatrix();};new ResizeObserver(resize).observe(host);resize();
  new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;},{threshold:.05}).observe(host);
- new GLTFLoader().load('./media/fish-amberjack.glb',gltf=>{
+ new GLTFLoader().load('./media/fish-amberjack-v2.glb',gltf=>{
   const box=new THREE.Box3().setFromObject(gltf.scene),center=box.getCenter(new THREE.Vector3()),size=box.getSize(new THREE.Vector3());
   gltf.scene.position.sub(center);
   for(let i=0;i<9;i++){const body=gltf.scene.clone(true),group=new THREE.Group();body.rotation.y=Math.PI/2;body.scale.setScalar((2.8+(i%3)*.4)/Math.max(size.x,size.z));group.add(body);group.userData={phase:i*.71,boost:0};scene.add(group);fish.push(group);}
