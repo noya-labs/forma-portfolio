@@ -162,3 +162,8 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 
 .invitation-copy h2{font-size:min(54px,3.15cqi);white-space:nowrap}
 
+.invitation-action .start-project{font-size:28px;padding:22px 32px;min-height:76px}
+.invitation-action p{font-size:22px}
+@media(max-width:800px){.invitation-action .start-project{font-size:28px}}
+@media(max-width:650px){.invitation-action .start-project{font-size:26px;padding:20px 18px;gap:14px}}
+
