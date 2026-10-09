@@ -176,3 +176,8 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 .art-cover .cover-name{font-size:34px;font-weight:700;line-height:1.08;letter-spacing:.015em;color:#edcc85;text-shadow:0 2px 3px #000b,0 5px 16px #0009;padding-bottom:14px;overflow-wrap:normal}
 @media(max-width:650px){.art-cover .cover-name{font-size:32px}body.index-mode .art-cover .cover-name{font-size:24px}}
 
+
+/* Shared project heading scale and embedded asset layout. */
+.project-intro h1{font-size:clamp(48px,6vw,84px);line-height:1.15;overflow-wrap:normal}
+.fish-tank{width:100%;min-width:0}.chapter-image:has(.fish-tank){padding:0;gap:0}
+@media(max-width:750px){.project-intro h1{font-size:46px}}
