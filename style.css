@@ -131,3 +131,13 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 @media(max-width:750px){.project-intro h1{font-size:84px}.project-tagline{font-size:46px}.project-intro .project-summary{font-size:30px}.chapter-copy h2{font-size:50px}.chapter-copy p{font-size:28px}.chapter-detail h3{font-size:34px}.chapter-detail p{font-size:26px}}
 
 
+/* Let project images occupy their full presentation surface. */
+.project-page .chapter-image{padding:0;gap:0;background:#101a26;align-self:center;width:100%}
+.project-page .chapter-image img{display:block;width:100%;max-width:none;height:auto;object-fit:cover}
+.project-page .chapter-image figcaption{width:100%;padding:14px 18px;background:#0c1520;border-top:1px solid #ffffff12}
+.project-page .chapter-image:hover img{transform:none}
+.project-page[data-project=c6] .project-chapter{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.project-page[data-project=c6] .chapter-image{width:min(100%,440px);justify-self:center;border-radius:18px}
+.project-page[data-project=c6] .chapter-image img{width:100%;height:auto;object-fit:contain}
+@media(max-width:750px){.project-page[data-project=c6] .project-chapter{grid-template-columns:1fr}.project-page[data-project=c6] .chapter-image{width:min(100%,390px)}.project-page .chapter-image figcaption{padding:12px}}
+
