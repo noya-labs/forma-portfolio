@@ -71,7 +71,7 @@ stage.addEventListener('pointerup',e=>{if(dragStart!==null&&Math.abs(e.clientX-d
 stage.addEventListener('click',e=>{if(dragged){e.preventDefault();e.stopPropagation();dragged=false;}},true);
 stage.tabIndex=0;stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();browse(e.key==='ArrowRight'?1:-1);}});
 setInterval(()=>{if(Date.now()>manualUntil&&!document.hidden&&dragStart===null&&!document.body.classList.contains('motion-paused')&&!document.body.classList.contains('index-mode')&&!document.querySelector('dialog[open]')&&!reduced)arrangeCarousel(1);},5000);
-projectInfo.c3.category='אתר מסחר במטבעות דיגיטליים';projectInfo.c3.text='NEXORA — אתר למסחר במטבעות דיגיטליים, עם חוויית משתמש סביב עולם הקריפטו והמסחר.';projectInfo.c3.tags='Crypto trading · Digital currencies';
+projectInfo.c3.category='אתר מסחר במטבעות דיגיטליים';projectInfo.c3.text='מערכת מסחר — אתר למסחר במטבעות דיגיטליים, עם חוויית משתמש סביב עולם הקריפטו והמסחר.';projectInfo.c3.tags='Crypto trading · Digital currencies';
 document.querySelector('.c3 .bottom').textContent=projectInfo.c3.category;
 document.querySelector('.c3').title=projectInfo.c3.category;
 

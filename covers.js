@@ -1,4 +1,4 @@
-const artCovers=[['c1','noya','NOYA'],['c2','bluebay','BLUE BAY'],['c3','nexora','NEXORA'],['c4','wcr','WEB CONTROL ROOM'],['c5','monopoly','NAHARIYA 1990'],['c6','ariel','ARIEL']];
+const artCovers=[['c1','noya','NOYA'],['c2','bluebay','BLUE BAY'],['c3','nexora','CRYPTO PLATFORM'],['c4','wcr','WEB CONTROL ROOM'],['c5','monopoly','NAHARIYA 1990'],['c6','ariel','ARIEL']];
 artCovers.forEach(([selector,file,name])=>{
  const card=document.querySelector('.'+selector);card.classList.add('art-cover');
  const image=document.createElement('img');image.src=file==='ariel'?'./media/ariel-1.png':'./'+file+'-cover.'+(file==='monopoly'?'jpg':'png');if(file==='bluebay'){image.src='https://www.bluebaywash.com/bluebaywash/images/concrete-patio-cleaning-half-dirty-half-clean-antioch-ca.jpeg';}image.alt=(file==='bluebay'?'עבודת ניקוי מתוך אתר Blue Bay Wash':file==='monopoly'?'לוח מונופול נהריה 1990':'כריכה רעיונית עבור '+name);image.className='concept-cover';image.draggable=false;card.prepend(image);
