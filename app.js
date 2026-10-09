@@ -66,7 +66,7 @@ let dragStart=null,dragged=false;
 
 window.addEventListener('pointerup',()=>{dragStart=null;});
 window.addEventListener('pointercancel',()=>{dragStart=null;dragged=false;});
-stage.addEventListener('pointerdown',e=>{if(e.target.closest('button')||document.body.classList.contains('index-mode'))return;dragStart=e.clientX;dragged=false;});
+stage.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse'||e.target.closest('button')||document.body.classList.contains('index-mode'))return;dragStart=e.clientX;dragged=false;});
 stage.addEventListener('pointerup',e=>{if(dragStart!==null&&Math.abs(e.clientX-dragStart)>45){dragged=true;browse(e.clientX<dragStart?1:-1);}dragStart=null;});
 stage.addEventListener('click',e=>{if(dragged){e.preventDefault();e.stopPropagation();dragged=false;}},true);
 stage.tabIndex=0;stage.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();browse(e.key==='ArrowRight'?1:-1);}});
@@ -115,4 +115,6 @@ document.getElementById('project-enquiry').addEventListener('submit',event=>{
  else if(contactDestination.email){location.href='mailto:'+contactDestination.email+'?subject='+encodeURIComponent('פרויקט חדש דרך FORMA')+'&body='+encodeURIComponent(message);}
  else {document.getElementById('contact-feedback').textContent='יצירת הקשר תיפתח בקרוב.';}
 });
+
+
 
