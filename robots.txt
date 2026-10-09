@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://noya-labs.github.io/forma-portfolio/sitemap.xml
+
