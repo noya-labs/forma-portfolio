@@ -40,9 +40,9 @@ sideNav.querySelector('.arrow-right').addEventListener('click',()=>browse(1));
 function arrangeCarousel(step=0){
  carouselPosition=(carouselPosition+step+carouselCards.length)%carouselCards.length;
  const indexed=document.body.classList.contains('index-mode');
- const reachable=innerWidth<=650?1:innerWidth<=1050?2:4;
+ const reachable=innerWidth<=650?1:Math.max(1,Math.min(4,Math.floor((track.clientWidth+35)/(carouselCards[0].offsetWidth+35))));
  const gap=innerWidth<=650?28:35;
- const slideStep=innerWidth>1050?(track.clientWidth-carouselCards[0].offsetWidth)/3:carouselCards[0].offsetWidth+gap;
+ const slideStep=innerWidth>1050?Math.max(carouselCards[0].offsetWidth+gap,(track.clientWidth-carouselCards[0].offsetWidth)/Math.max(1,reachable-1)):carouselCards[0].offsetWidth+gap;
  carouselCards.forEach((card,i)=>{
   const slot=(i-carouselPosition+carouselCards.length)%carouselCards.length;
   const oldSlot=Number(card.dataset.slot ?? slot);
@@ -50,7 +50,7 @@ function arrangeCarousel(step=0){
   card.classList.toggle('carousel-wrap',wraps);
   card.dataset.slot=String(slot);
   card.tabIndex=indexed||slot<reachable?0:-1;
-  card.dataset.front=String(slot===0);card.dataset.visible=String(slot<4);
+  card.dataset.front=String(slot===0);card.dataset.visible=String(slot<reachable);
   card.style.setProperty('--i',indexed?i:slot);
   card.style.setProperty('--slide-x',(slot*slideStep)+'px');
   card.style.setProperty('--top',([34,5,28,-18][(indexed?i:slot)%4])+'px');
@@ -115,6 +115,8 @@ document.getElementById('project-enquiry').addEventListener('submit',event=>{
  else if(contactDestination.email){location.href='mailto:'+contactDestination.email+'?subject='+encodeURIComponent('פרויקט חדש דרך FORMA')+'&body='+encodeURIComponent(message);}
  else {document.getElementById('contact-feedback').textContent='יצירת הקשר תיפתח בקרוב.';}
 });
+
+
 
 
 
