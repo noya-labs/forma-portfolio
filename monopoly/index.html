@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מונופול נהריה — סקיצת מבנה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <h1>מונופול נהריה — סקיצת מבנה <small>מבנה נעול · 40 משבצות · תצוגה ראשונה</small></h1>
+    <div class="controls">
+      <label for="board-size">גודל הלוח (ס״מ):</label>
+      <input id="board-size" type="number" min="10" max="120" step="0.1" value="46.5" />
+      <div class="presets" role="group" aria-label="גדלים מוכנים">
+        <button type="button" data-preset="39.4">39.4</button>
+        <button type="button" data-preset="46.5" class="active">46.5</button>
+        <button type="button" data-preset="50">50</button>
+      </div>
+      <span class="lock" title="יחס תמונה נעול 1:1">🔒 יחס 1:1 נעול</span>
+      <span id="size-label" class="size-label">46.5 cm × 46.5 cm (1:1)</span>
+      <div class="modes" role="group" aria-label="מצבי תצוגה">
+        <button type="button" data-mode="preview" aria-pressed="true">תצוגה</button>
+        <button type="button" data-mode="print" aria-pressed="false">תצוגת הדפסה</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <div class="board-frame">
+      <svg id="board-svg" role="img" aria-label="לוח מונופול נהריה"></svg>
+    </div>
+  </main>
+
+  <script src="board-data.js"></script>
+  <script src="board.js"></script>
+</body>
+</html>
