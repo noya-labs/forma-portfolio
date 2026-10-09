@@ -44,3 +44,4 @@ marketing.parts.forEach(([title,text],i)=>{
  const paragraph=document.createElement('p');paragraph.textContent=text;
  part.append(heading,paragraph);copy.append(part);
 });
+if(projectKey==='c7'){const tank=document.querySelector('.fish-tank');tank.style.margin='0';document.querySelector('.project-chapter figure').replaceChildren(tank);}
