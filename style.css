@@ -251,3 +251,8 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 .project-page[data-project=c7] .tank-view{height:auto;aspect-ratio:16/9;position:relative}
 .project-page[data-project=c7] .tank-view canvas{position:absolute;inset:0}
 .project-page[data-project=c7] .chapter-image .fish-tank{border:0;border-radius:0}
+
+/* Permanent owner rule: every still image fills its entire media surface. */
+.project-page .chapter-image.fitted-project-image>img{object-fit:cover!important;object-position:center}
+.project-page[data-project=c6] .ariel-clean-screenshot{display:block;position:relative}
+.project-page[data-project=c6] .ariel-clean-screenshot img{width:100%;max-width:none;height:104%;object-fit:cover;object-position:center;transform:translateY(-3.85%)}
