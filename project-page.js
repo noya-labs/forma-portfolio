@@ -13,6 +13,11 @@ projectGalleries[projectKey].forEach(([src,title,text,source],i)=>{
  const chapter=document.createElement('section');chapter.className='project-chapter';
  const figure=document.createElement('figure');figure.className='chapter-image';
  const image=document.createElement('img');image.src=src;image.alt=title;image.decoding='async';image.loading=i===0?'eager':'lazy';
+ if(projectKey==='c1'&&i>0){
+  figure.classList.add('noya-fitted-image');
+  const fitFrame=()=>{if(image.naturalWidth&&image.naturalHeight)figure.style.setProperty('--image-ratio',image.naturalWidth/image.naturalHeight);};
+  image.addEventListener('load',fitFrame,{once:true});if(image.complete)fitFrame();
+ }
  const caption=document.createElement('figcaption');caption.textContent=source;
  if(projectKey==='c6'&&i===0){
   const titlebar=document.createElement('div');titlebar.className='ariel-project-titlebar';titlebar.textContent='ARIEL';titlebar.dir='ltr';
