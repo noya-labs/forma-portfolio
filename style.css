@@ -198,3 +198,9 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 @media(max-width:750px){.project-page .project-chapter,.project-page .project-chapter:nth-child(even){grid-template-columns:minmax(0,1fr);margin-left:18px;margin-right:18px;gap:24px}}
 .project-page[data-project=c6] .project-chapter{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
 @media(max-width:750px){.project-page[data-project=c6] .project-chapter{grid-template-columns:minmax(0,1fr)}}
+
+/* Replace the original Windows title bar with the project name. */
+.ariel-project-titlebar{padding:10px 18px;background:#111c2b;color:#edcc85;font:500 17px/1.2 Georgia,serif;letter-spacing:.12em;border-bottom:1px solid #ffffff18;text-align:center}
+.ariel-clean-screenshot{overflow:hidden;width:100%}
+.project-page[data-project=c6] .ariel-clean-screenshot img{display:block;margin-top:-6.14%;width:100%;height:auto}
+

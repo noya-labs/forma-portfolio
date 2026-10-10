@@ -13,7 +13,12 @@ projectGalleries[projectKey].forEach(([src,title,text,source],i)=>{
  const chapter=document.createElement('section');chapter.className='project-chapter';
  const figure=document.createElement('figure');figure.className='chapter-image';
  const image=document.createElement('img');image.src=src;image.alt=title;image.decoding='async';image.loading=i===0?'eager':'lazy';
- const caption=document.createElement('figcaption');caption.textContent=source;figure.append(image,caption);
+ const caption=document.createElement('figcaption');caption.textContent=source;
+ if(projectKey==='c6'&&i===0){
+  const titlebar=document.createElement('div');titlebar.className='ariel-project-titlebar';titlebar.textContent='ARIEL';titlebar.dir='ltr';
+  const viewport=document.createElement('div');viewport.className='ariel-clean-screenshot';viewport.append(image);
+  figure.append(titlebar,viewport,caption);
+ }else figure.append(image,caption);
  const copy=document.createElement('div');copy.className='chapter-copy';
  const step=document.createElement('span');step.className='eyebrow';step.dir='ltr';step.textContent=String(i+1).padStart(2,'0')+' / '+String(projectGalleries[projectKey].length).padStart(2,'0');
  const heading=document.createElement('h2');heading.textContent=title;
@@ -45,3 +50,4 @@ marketing.parts.forEach(([title,text],i)=>{
  part.append(heading,paragraph);copy.append(part);
 });
 if(projectKey==='c7'){const tank=document.querySelector('.fish-tank');tank.style.margin='0';document.querySelector('.project-chapter figure').replaceChildren(tank);}
+
