@@ -186,3 +186,7 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 .art-cover .cover-name{font-family:Georgia,'Times New Roman',serif;font-size:36px;font-weight:400;letter-spacing:.015em;line-height:1.08;color:#edcc85;text-shadow:0 2px 4px #000c,0 5px 18px #0009}
 .card:hover .cover-name{letter-spacing:.015em}
 @media(max-width:650px){.art-cover .cover-name{font-size:34px}body.index-mode .art-cover .cover-name{font-size:25px}}
+
+/* Crop Windows title chrome from ARIEL cover without stretching the UI. */
+.c6.art-cover{container-type:inline-size;--ariel-chrome:max(6.34cqw,4.1%)}
+.c6.art-cover .concept-cover{top:calc(-1 * var(--ariel-chrome));bottom:auto;height:calc(100% + var(--ariel-chrome));object-fit:cover;object-position:center top;animation:none}
