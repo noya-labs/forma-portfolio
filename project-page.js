@@ -2,7 +2,8 @@ const projectKey=document.body.dataset.project;
 const details=projectInfo[projectKey];
 document.title=details.name+' — FORMA';
 document.querySelector('.project-category').textContent=details.category;
-document.querySelector('h1').textContent=details.name;
+document.querySelector('h1').textContent=projectKey==='c1'?'NOYA Hearing Aid Accessories':details.name;
+if(projectKey==='c1'){document.querySelector('h1').dir='ltr';document.querySelector('.project-category').remove();}
 document.querySelector('.project-summary').textContent=details.text;
 document.querySelector('.project-tags').textContent=details.tags;
 document.querySelector('.project-status').textContent=details.status||'';
@@ -28,7 +29,7 @@ projectGalleries[projectKey].forEach(([src,title,text,source],i)=>{
  const copy=document.createElement('div');copy.className='chapter-copy';
  const step=document.createElement('span');step.className='eyebrow';step.dir='ltr';step.textContent=String(i+1).padStart(2,'0')+' / '+String(projectGalleries[projectKey].length).padStart(2,'0');
  const heading=document.createElement('h2');heading.textContent=title;
- const paragraph=document.createElement('p');paragraph.textContent=text;copy.append(step,heading,paragraph);chapter.append(figure,copy);
+ const paragraph=document.createElement('p');paragraph.textContent=text;if(projectKey==='c1')copy.append(heading,paragraph);else copy.append(step,heading,paragraph);chapter.append(figure,copy);
  document.querySelector('#project-chapters').append(chapter);
  if(reducedMotion)chapter.classList.add('chapter-visible');else observer.observe(chapter);
 });
