@@ -275,21 +275,3 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 .project-page[data-project=c1] .chapter-detail h3{font-size:17px}
 .project-page[data-project=c1] .chapter-detail p{font-size:13px}
 }
-
-/* NOYA reference: halve the latest preview typography once more. */
-.project-page[data-project=c1] .project-intro h1{font-size:clamp(12px,1.5vw,21px)}
-.project-page[data-project=c1] .project-tagline{font-size:clamp(11.5px,1.35vw,18px)}
-.project-page[data-project=c1] .project-intro .project-summary{font-size:9px}
-.project-page[data-project=c1] .chapter-copy h2{font-size:clamp(12.5px,1.5vw,19px)}
-.project-page[data-project=c1] .chapter-copy p{font-size:8px}
-.project-page[data-project=c1] .chapter-detail h3{font-size:9px}
-.project-page[data-project=c1] .chapter-detail p{font-size:7px}
-@media(max-width:750px){
-.project-page[data-project=c1] .project-intro h1{font-size:11.5px}
-.project-page[data-project=c1] .project-tagline{font-size:11.5px}
-.project-page[data-project=c1] .project-intro .project-summary{font-size:7.5px}
-.project-page[data-project=c1] .chapter-copy h2{font-size:12.5px}
-.project-page[data-project=c1] .chapter-copy p{font-size:7px}
-.project-page[data-project=c1] .chapter-detail h3{font-size:8.5px}
-.project-page[data-project=c1] .chapter-detail p{font-size:6.5px}
-}
