@@ -25,8 +25,8 @@ const floor=new THREE.Mesh(new THREE.PlaneGeometry(50,30),new THREE.MeshStandard
 for(let i=0;i<16;i++){const rock=new THREE.Mesh(new THREE.IcosahedronGeometry(.3+(i%4)*.2,1),new THREE.MeshStandardMaterial({color:i%2?0x496766:0x243f45,roughness:.95}));rock.position.set(Math.sin(i*12)*9,-3.6,Math.cos(i*8)*4-2);rock.scale.set(1.7,.8,1);scene.add(rock);}
 const particles=[];for(let i=0;i<85;i++)particles.push(Math.sin(i*19)*12,Math.cos(i*13)*6,Math.sin(i*7)*5);
 const geometry=new THREE.BufferGeometry();geometry.setAttribute('position',new THREE.Float32BufferAttribute(particles,3));const bubbles=new THREE.Points(geometry,new THREE.PointsMaterial({color:0x9ee0e8,size:.035,transparent:true,opacity:.5}));scene.add(bubbles);
-function release(){if(held)held.userData.boost=1.8;held=null;status.textContent='הזיזו את הסמן והדגים יתקרבו; החזיקו דג כדי לעצור אותו.';canvas.style.cursor='default';}
-canvas.addEventListener('pointerdown',e=>{const r=canvas.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);raycaster.setFromCamera(pointer,camera);const hit=raycaster.intersectObjects(fish,true)[0];if(!hit)return;held=hit.object;while(held.parent&&!fish.includes(held))held=held.parent;if(!fish.includes(held)){held=null;return;}status.textContent='אינטיאס · דגם מתוך הפרויקט · שחררו להמשך השחייה';canvas.setPointerCapture(e.pointerId);canvas.style.cursor='pointer';});
+function release(){if(held)held.userData.boost=1.8;held=null;status.textContent='';canvas.style.cursor='default';}
+canvas.addEventListener('pointerdown',e=>{const r=canvas.getBoundingClientRect();pointer.set((e.clientX-r.left)/r.width*2-1,-(e.clientY-r.top)/r.height*2+1);raycaster.setFromCamera(pointer,camera);const hit=raycaster.intersectObjects(fish,true)[0];if(!hit)return;held=hit.object;while(held.parent&&!fish.includes(held))held=held.parent;if(!fish.includes(held)){held=null;return;}status.textContent='';canvas.setPointerCapture(e.pointerId);canvas.style.cursor='pointer';});
 window.addEventListener('pointerup',release);window.addEventListener('pointercancel',release);window.addEventListener('blur',release);canvas.addEventListener('keydown',e=>{if(e.key==='Escape')release();});
 pause.addEventListener('click',()=>{paused=!paused;pause.textContent=paused?'הפעלת שחייה':'עצירת שחייה';pause.setAttribute('aria-pressed',String(paused));});
 try{
@@ -56,7 +56,7 @@ try{
    });
    group.position.set(Math.sin(i*.71)*5.5,Math.sin(i*.71*1.8)*1.8+(i%3-1)*.45,Math.cos(i*.71)*2.2-1);
    group.userData={phase:i*.71,pathTime:i*.71,boost:0,swimTime,mouthOpen,nextMouth:Math.random()*5,mouthStart:-10,mouthDuration:0.9+Math.random()*.35};scene.add(group);fish.push(group);}
-  status.textContent='הזיזו את הסמן והדגים יתקרבו; החזיקו דג כדי לעצור אותו.';host.dataset.ready='true';
+  status.textContent='';host.dataset.ready='true';
  },undefined,()=>{status.textContent='לא ניתן לטעון את הדגם. נסו לרענן את העמוד.';});
  function frame(now){requestAnimationFrame(frame);const dt=Math.min((now-last)/1000,.05);last=now;if(!visible||document.hidden)return;if(!paused)elapsed+=dt;
   fish.forEach((f,i)=>{if(f===held||paused)return;
