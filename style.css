@@ -190,3 +190,11 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 /* Crop Windows title chrome from ARIEL cover without stretching the UI. */
 .c6.art-cover{container-type:inline-size;--ariel-chrome:max(6.34cqw,4.1%)}
 .c6.art-cover .concept-cover{top:calc(-1 * var(--ariel-chrome));bottom:auto;height:calc(100% + var(--ariel-chrome));object-fit:cover;object-position:center top;animation:none}
+
+/* Full-size project media with the source aspect ratio preserved. */
+.project-page .project-chapter{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:4%;margin-left:5%;margin-right:5%}
+.project-page .chapter-image img{width:100%;height:auto;object-fit:contain;aspect-ratio:auto}
+.project-page .chapter-image{max-width:none}
+@media(max-width:750px){.project-page .project-chapter,.project-page .project-chapter:nth-child(even){grid-template-columns:minmax(0,1fr);margin-left:18px;margin-right:18px;gap:24px}}
+.project-page[data-project=c6] .project-chapter{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media(max-width:750px){.project-page[data-project=c6] .project-chapter{grid-template-columns:minmax(0,1fr)}}
