@@ -221,3 +221,18 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 .project-page[data-project=c1] .chapter-image.noya-fitted-image{width:min(100%,calc(clamp(384px,33.6vw,576px) * var(--image-ratio,0.56)))}
 @media(max-width:750px){.project-page[data-project=c1] .chapter-image.noya-fitted-image{width:min(100%,calc(clamp(312px,78vw,504px) * var(--image-ratio,0.56)))}}
 
+/* Shared content-page proportions: complete images in fitted frames. */
+.project-page .project-chapter,.project-page .project-chapter:nth-child(even),.project-page[data-project=c6] .project-chapter{grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+.project-page .project-chapter>*{min-width:0}
+.project-page .chapter-image.fitted-project-image{width:min(100%,calc(clamp(320px,30vw,480px) * var(--image-ratio,1.7778)));justify-self:center}
+.project-page .chapter-image.fitted-project-image img{width:100%;height:auto;object-fit:contain}
+.project-page[data-project=c1] .chapter-image.noya-fitted-image{width:min(100%,calc(clamp(384px,33.6vw,576px) * var(--image-ratio,.56)))}
+.project-page .chapter-copy{overflow-wrap:anywhere}
+.project-page .project-pagination{flex-wrap:wrap;gap:20px}
+@media(max-width:750px){
+.project-page .project-chapter,.project-page .project-chapter:nth-child(even),.project-page[data-project=c6] .project-chapter{grid-template-columns:minmax(0,1fr)}
+.project-page .chapter-image.fitted-project-image{width:min(100%,calc(420px * var(--image-ratio,1.7778)))}
+.project-page[data-project=c1] .chapter-image.noya-fitted-image{width:min(100%,calc(clamp(312px,78vw,504px) * var(--image-ratio,.56)))}
+.project-page .project-meta{flex-wrap:wrap}
+.project-page .project-intro h1{overflow-wrap:anywhere}
+}

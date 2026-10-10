@@ -13,8 +13,9 @@ projectGalleries[projectKey].forEach(([src,title,text,source],i)=>{
  const chapter=document.createElement('section');chapter.className='project-chapter';
  const figure=document.createElement('figure');figure.className='chapter-image';
  const image=document.createElement('img');image.src=src;image.alt=title;image.decoding='async';image.loading=i===0?'eager':'lazy';
- if(projectKey==='c1'&&i>0){
-  figure.classList.add('noya-fitted-image');
+ if(!(projectKey==='c1'&&i===0)&&!(projectKey==='c7'&&i===0)){
+  figure.classList.add('fitted-project-image');
+  if(projectKey==='c1')figure.classList.add('noya-fitted-image');
   const fitFrame=()=>{if(image.naturalWidth&&image.naturalHeight)figure.style.setProperty('--image-ratio',image.naturalWidth/image.naturalHeight);};
   image.addEventListener('load',fitFrame,{once:true});if(image.complete)fitFrame();
  }
@@ -55,4 +56,3 @@ marketing.parts.forEach(([title,text],i)=>{
  part.append(heading,paragraph);copy.append(part);
 });
 if(projectKey==='c7'){const tank=document.querySelector('.fish-tank');tank.style.margin='0';document.querySelector('.project-chapter figure').replaceChildren(tank);}
-
