@@ -204,3 +204,11 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 .ariel-clean-screenshot{overflow:hidden;width:100%}
 .project-page[data-project=c6] .ariel-clean-screenshot img{display:block;margin-top:-6.14%;width:100%;height:auto}
 
+/* NOYA: balanced media frames and an unobstructed live 3D view. */
+.project-page[data-project=c1] .chapter-image>img{width:100%;height:clamp(320px,28vw,480px);object-fit:contain;background:#101a26}
+.project-page[data-project=c1] .inline-cinema .cinema-view{width:100%;height:auto;aspect-ratio:16/9;max-height:480px;min-height:0}
+.project-page[data-project=c1] .inline-cinema .cinema-view canvas{position:absolute;inset:0;width:100%;height:100%}
+.project-page[data-project=c1] .cinema-ready .cinema-fallback{display:none!important}
+.project-page[data-project=c1] .cinema-fallback{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+@media(max-width:750px){.project-page[data-project=c1] .chapter-image>img{height:clamp(260px,65vw,420px)}.project-page[data-project=c1] .inline-cinema .cinema-view{aspect-ratio:4/3;max-height:420px}}
+
