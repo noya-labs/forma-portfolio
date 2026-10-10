@@ -53,6 +53,6 @@ marketing.parts.forEach(([title,text],i)=>{
  const part=document.createElement('div');part.className='chapter-detail';
  const heading=document.createElement('h3');heading.textContent=title;
  const paragraph=document.createElement('p');paragraph.textContent=text;
- part.append(heading,paragraph);copy.append(part);
+ part.append(heading);text.split('\n\n').forEach(block=>{const body=document.createElement('p');body.textContent=block;part.append(body);});copy.append(part);
 });
 if(projectKey==='c7'){const tank=document.querySelector('.fish-tank');tank.style.margin='0';document.querySelector('.project-chapter figure').replaceChildren(tank);}

@@ -275,3 +275,5 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 .project-page[data-project=c1] .chapter-detail h3{font-size:17px}
 .project-page[data-project=c1] .chapter-detail p{font-size:13px}
 }
+
+.project-page[data-project=c1] .chapter-detail p+p{margin-top:14px}
