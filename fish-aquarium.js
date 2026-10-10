@@ -24,11 +24,26 @@ try{
  new GLTFLoader().load('./media/fish-amberjack-v2.glb',gltf=>{
   const box=new THREE.Box3().setFromObject(gltf.scene),center=box.getCenter(new THREE.Vector3()),size=box.getSize(new THREE.Vector3());
   gltf.scene.position.sub(center);
-  for(let i=0;i<9;i++){const body=gltf.scene.clone(true),group=new THREE.Group();body.rotation.y=Math.PI/2;body.scale.setScalar((2.8+(i%3)*.4)/Math.max(size.x,size.z));group.add(body);group.userData={phase:i*.71,boost:0};scene.add(group);fish.push(group);}
+  for(let i=0;i<9;i++){const body=gltf.scene.clone(true),group=new THREE.Group();body.rotation.y=Math.PI/2;body.scale.setScalar((2.8+(i%3)*.4)/Math.max(size.x,size.z));group.add(body);// Bend the rear half of the actual mesh, strongest at the tail tip.
+   const swimTime={value:0},swimPhase={value:i*1.37};
+   body.traverse(mesh=>{if(!mesh.isMesh)return;
+    const prepare=source=>{const material=source.clone();material.onBeforeCompile=shader=>{
+     shader.uniforms.swimTime=swimTime;shader.uniforms.swimPhase=swimPhase;
+     shader.vertexShader='uniform float swimTime; uniform float swimPhase;\n'+shader.vertexShader;
+     shader.vertexShader=shader.vertexShader.replace('#include <begin_vertex>',`#include <begin_vertex>
+      float tailWeight = smoothstep(0.05, 0.95, -position.z);
+      float tailWave = sin(swimTime * 5.2 + swimPhase + position.z * 2.4);
+      transformed.x += tailWave * tailWeight * tailWeight * 0.105;
+     `);
+    };material.customProgramCacheKey=()=> 'fish-tail-v1';return material;};
+    mesh.material=Array.isArray(mesh.material)?mesh.material.map(prepare):prepare(mesh.material);
+   });
+   group.userData={phase:i*.71,boost:0,swimTime};scene.add(group);fish.push(group);}
   status.textContent='החזיקו דג כדי לעצור אותו; שחררו כדי להמשיך.';host.dataset.ready='true';
  },undefined,()=>{status.textContent='לא ניתן לטעון את הדגם. נסו לרענן את העמוד.';});
  function frame(now){requestAnimationFrame(frame);const dt=Math.min((now-last)/1000,.05);last=now;if(!visible||document.hidden)return;if(!paused)elapsed+=dt;
-  fish.forEach((f,i)=>{if(f===held)return;const p=f.userData.phase,t=elapsed*.22+p;f.userData.boost=Math.max(0,f.userData.boost-dt);f.position.set(Math.sin(t)*5.5,Math.sin(t*.8+p)*1.8+(i%3-1)*.45,Math.cos(t)*2.2-1);f.rotation.y=Math.atan2(Math.sin(t)*-2.2,Math.cos(t)*5.5);f.rotation.z=Math.cos(t*.8+p)*.025;f.children[0].rotation.z=Math.sin(elapsed*4+i)*.025;});
+  fish.forEach((f,i)=>{if(f===held)return;const p=f.userData.phase,t=elapsed*.22+p;f.userData.boost=Math.max(0,f.userData.boost-dt);f.position.set(Math.sin(t)*5.5,Math.sin(t*.8+p)*1.8+(i%3-1)*.45,Math.cos(t)*2.2-1);f.rotation.y=Math.atan2(Math.sin(t)*-2.2,Math.cos(t)*5.5);f.rotation.z=Math.cos(t*.8+p)*.025;f.userData.swimTime.value=elapsed;f.children[0].rotation.z=Math.sin(elapsed*2.6+i)*.008;});
   bubbles.rotation.y=elapsed*.015;renderer.render(scene,camera);
  }requestAnimationFrame(frame);
 }catch(error){status.textContent='תצוגת התלת־ממד אינה זמינה בדפדפן הזה.';}
+
