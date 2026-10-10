@@ -236,3 +236,18 @@ body:not(.index-mode) .card.carousel-wrap{transition:none!important}
 .project-page .project-meta{flex-wrap:wrap}
 .project-page .project-intro h1{overflow-wrap:anywhere}
 }
+
+/* WCR: identical landscape presentation surfaces for both chapters. */
+.project-page[data-project=c4] .chapter-image.fitted-project-image{width:100%;justify-self:stretch}
+.project-page[data-project=c4] .chapter-image.fitted-project-image>img{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#101a26}
+.project-page[data-project=c4] .project-chapter:first-child .chapter-image>img{object-fit:cover;object-position:center}
+
+/* Owner requirement: equal media surfaces on every project except NOYA. */
+.project-page:not([data-project=c1]) .chapter-image.fitted-project-image{width:100%;justify-self:stretch;position:relative}
+.project-page:not([data-project=c1]) .chapter-image.fitted-project-image>img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;object-position:center;background:#101a26}
+.project-page[data-project=c6] .ariel-clean-screenshot{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center}
+.project-page[data-project=c6] .ariel-clean-screenshot img{width:auto;max-width:100%;height:104%;margin:0;transform:translateY(-2%);object-fit:contain}
+.project-page[data-project=c6] .ariel-project-titlebar{position:absolute;top:0;left:0;right:0;z-index:1;padding:6px 12px;font-size:13px}
+.project-page[data-project=c7] .tank-view{height:auto;aspect-ratio:16/9;position:relative}
+.project-page[data-project=c7] .tank-view canvas{position:absolute;inset:0}
+.project-page[data-project=c7] .chapter-image .fish-tank{border:0;border-radius:0}
