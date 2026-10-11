@@ -24,7 +24,7 @@ setMode(false);
 window.addEventListener('resize', () => setMode(document.body.classList.contains('index-mode')));
 Object.entries(projectInfo).forEach(([key,data])=>{
  const card=document.querySelector('.'+key);if(!card)return;
- card.title=data.category;card.querySelector('.bottom').textContent=data.category;
+ const coverCategory=card.classList.contains('c1')?'פיתוח BLE & App למכשירי שמיעה':data.category;card.title=coverCategory;card.querySelector('.bottom').textContent=coverCategory;
  card.href=projectPaths[key];card.removeAttribute('target');card.removeAttribute('rel');
 });
 const carouselCards = Array.from(document.querySelectorAll('.track>.card'));
@@ -115,8 +115,3 @@ document.getElementById('project-enquiry').addEventListener('submit',event=>{
  else if(contactDestination.email){location.href='mailto:'+contactDestination.email+'?subject='+encodeURIComponent('פרויקט חדש דרך FORMA')+'&body='+encodeURIComponent(message);}
  else {document.getElementById('contact-feedback').textContent='יצירת הקשר תיפתח בקרוב.';}
 });
-
-
-
-
-
