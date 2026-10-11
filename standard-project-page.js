@@ -48,7 +48,7 @@ const marketing=projectMarketing[projectKey];
 document.querySelector('.project-summary').textContent=marketing.intro;
 const tagline=document.createElement('h2');tagline.className='project-tagline';tagline.textContent=marketing.headline;document.querySelector('.project-summary').before(tagline);
 const chapters=[...document.querySelectorAll('.project-chapter')];
-const placements=projectKey==='c1'?[0,3,2,1]:projectKey==='c6'?[0,4,5,1,2,3]:marketing.parts.map((_,i)=>i%chapters.length);
+const placements=projectKey==='c1'?[0,3,2,1]:projectKey==='c6'?[0,4,5,3,1,2]:marketing.parts.map((_,i)=>i%chapters.length);
 marketing.parts.forEach(([title,text],i)=>{
  const copy=chapters[placements[i]].querySelector('.chapter-copy');
  const part=document.createElement('div');part.className='chapter-detail';
